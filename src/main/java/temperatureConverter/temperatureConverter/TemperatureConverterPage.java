@@ -15,13 +15,14 @@ public class TemperatureConverterPage {
             throw new WrongPageException("Incorrect page for Temperature Conversion page");
         }
     }
-    public void inputFahrenheit(double valueOfFahrenheit){
+    public void inputFahrenheit(double valueOfFahrenheit) throws InterruptedException{
         String s = Double.toString(valueOfFahrenheit);
-        driver.findElement(By.xpath(".//*[@id='_Aif']/input")).clear();
-        driver.findElement(By.xpath(".//*[@id='_Aif']/input")).sendKeys(s);
+        driver.findElement(By.xpath(".//*[@id=\"HG5Seb\"]/input")).clear();////*[@id="HG5Seb"]/input
+        driver.findElement(By.xpath(".//*[@id=\"HG5Seb\"]/input")).sendKeys(s);
+        Thread.sleep(2000);
     }
     public String actualResult(){
-        String valueOfCelsius = driver.findElement(By.xpath(".//*[@id='_Cif']/input")).getAttribute("value");
+        String valueOfCelsius = driver.findElement(By.xpath(".//*[@id=\"NotFQb\"]/input")).getAttribute("value");////*[@id="NotFQb"]/input
         System.out.println(valueOfCelsius);
         return valueOfCelsius;
     }

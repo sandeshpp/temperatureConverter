@@ -8,6 +8,7 @@ import cucumber.annotation.en.Then;
 import cucumber.annotation.en.When;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.assertEquals;
@@ -22,7 +23,9 @@ public class ConversionStepDefs {
     public TemperatureConverterPage temperatureConverterPage;
     @Given("^I want to  convert (\\d+).(\\d+) degree Fahrenheit to Celsius$")
     public void I_want_to_convert_degree_Fahrenheit_to_Celsius(int arg1, int arg2) throws Throwable {
-        driver = new FirefoxDriver();
+       // driver = new FirefoxDriver();
+    	System.setProperty("webdriver.chrome.driver", "c:\\chromedriver.exe");
+    	driver=new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         googlePage = new Google(driver);
